@@ -57,6 +57,15 @@ Copy `.env.example` → `.env` and update values.
 
 Open docs: `http://localhost:8000/docs`
 
+## Deploy on Render (recommended)
+
+In Render service settings:
+- Root Directory: *(leave blank)*
+- Build Command: `bash render-build.sh`
+- Start Command: `bash render-start.sh`
+
+Render Python version is pinned via `.python-version`.
+
 ## Security considerations (implementation notes)
 
 - Passwords are hashed with bcrypt via `passlib`.
@@ -64,4 +73,3 @@ Open docs: `http://localhost:8000/docs`
 - RBAC is enforced on the API routes (not just UI).
 - Rate limiting is enabled for auth endpoints (demo defaults).
 - Errors avoid leaking internals; logs should not include secrets/PII.
-
