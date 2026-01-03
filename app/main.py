@@ -19,8 +19,22 @@ app.include_router(auth_router)
 app.include_router(users_router)
 app.include_router(transactions_router)
 
+@app.get("/")
+def root():
+    return {
+        "name": "finguard-api",
+        "ok": True,
+        "endpoints": {
+            "health": "/health",
+            "docs": "/docs",
+            "auth": { "register": "/auth/register", "login": "/auth/login" },
+            "me": "/me",
+            "admin_users": "/admin/users",
+            "transactions": "/transactions",
+        },
+    }
+
 
 @app.get("/health")
 def health():
     return {"ok": True}
-
