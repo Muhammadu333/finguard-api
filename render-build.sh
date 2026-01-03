@@ -3,5 +3,4 @@ set -euo pipefail
 
 python -m pip install --upgrade pip
 pip install -r requirements.txt
-python scripts/migrate.py
-
+PYTHONPATH="." python scripts/migrate.py
